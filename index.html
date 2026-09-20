@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="莲湖二手房在线交易服务平台，提供西安莲湖区二手房房源信息、房价走势、学区划分及购房指南。包含真实在售房源、小区详情、价格分析和交易流程解读。">
+    <meta name="keywords" content="莲湖二手房,西安二手房,莲湖区房价,莲湖房产,二手房交易">
+    <title>莲湖二手房-西安莲湖区房源信息与购房指南服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #f5f7fa;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --accent-color: #ff9900;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions .btn-login {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .header-actions .btn-login:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            padding: 60px 20px;
+            color: var(--white);
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 10px;
+            border-radius: var(--radius);
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .search-box input, .search-box select {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-box input:focus, .search-box select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #0052a3;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 30px;
+        }
+
+        /* Property Grid */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 153, 0, 0.9);
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-price {
+            font-size: 24px;
+            color: #e63946;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-price span {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-info {
+            font-size: 13px;
+            color: var(--text-light);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card-info span {
+            background: #f0f2f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .card-footer {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 10px;
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .stats-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .stats-val {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .trend-up { color: #28a745; }
+        .trend-down { color: #dc3545; }
+
+        .guide-list li {
+            margin-bottom: 10px;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* District Section */
+        .district-section {
+            margin-top: 40px;
+        }
+
+        .district-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .district-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .district-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+
+        .district-name {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .district-price {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--white);
+            margin-top: 60px;
+            padding: 40px 20px;
+        }
+
+        .faq-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 12px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>莲湖房产</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">新房</a></li>
+                    <li><a href="#">二手房</a></li>
+                    <li><a href="#">租房</a></li>
+                    <li><a href="#">小区</a></li>
+                    <li><a href="#">资讯</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-login">登录 / 注册</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>莲湖二手房房源大全</h1>
+            <p>海量真实房源，精准价格分析，助您安家莲湖</p>
+            <form class="search-box" onsubmit="event.preventDefault(); alert('搜索功能演示：请输入小区或地址');">
+                <input type="text" placeholder="输入小区名称、商圈或地址...">
+                <select>
+                    <option value="">价格范围</option>
+                    <option value="low">100万以下</option>
+                    <option value="mid">100-300万</option>
+                    <option value="high">300万以上</option>
+                </select>
+                <select>
+                    <option value="">户型选择</option>
+                    <option value="1">一室</option>
+                    <option value="2">两室</option>
+                    <option value="3">三室</option>
+                </select>
+                <button type="submit">搜索房源</button>
+            </form>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Main Content Area -->
+        <section class="main-content">
+            
+            <!-- Hot Districts -->
+            <section class="district-section">
+                <div class="section-header">
+                    <h2 class="section-title">热门商圈</h2>
+                    <a href="#" class="section-more">查看全部 &gt;</a>
+                </div>
+                <div class="district-grid">
+                    <div class="district-item">
+                        <span class="district-name">北大街</span>
+                        <span class="district-price">均价 28,500元/m²</span>
+                    </div>
+                    <div class="district-item">
+                        <span class="district-name">龙首原</span>
+                        <span class="district-price">均价 27,200元/m²</span>
+                    </div>
+                    <div class="district-item">
+                        <span class="district-name">土门</span>
+                        <span class="district-price">均价 22,800元/m²</span>
+                    </div>
+                    <div class="district-item">
+                        <span class="district-name">劳动路</span>
+                        <span class="district-price">均价 21,500元/m²</span>
+                    </div>
+                    <div class="district-item">
+                        <span class="district-name">环城西路</span>
+                        <span class="district-price">均价 24,100元/m²</span>
+                    </div>
+                    <div class="district-item">
+                        <span class="district-name">洒金桥</span>
+                        <span class="district-price">均价 26,900元/m²</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Property List -->
+            <section class="property-list-section">
+                <div class="section-header">
+                    <h2 class="section-title">最新在售房源</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button style="padding: 6px 12px; border:1px solid #ddd; background:white; border-radius:4px; cursor:pointer;">最新</button>
+                        <button style="padding: 6px 12px; border:1px solid #ddd; background:white; border-radius:4px; cursor:pointer;">价格从低到高</button>
+                    </div>
+                </div>
+
+                <div class="property-grid">
+                    <!-- Card 1 -->
+                    <article class="property-card">
+                        <div class="card-img">
+                            <span class="card-badge">急售</span>
+                            <img src="https://picsum.photos/seed/house1/400/300" alt="莲湖二手房房源">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-price">280万 <span>/ 89㎡</span></div>
+                            <h3 class="card-title">龙首原·中联大厦 两室一厅 精装修</h3>
+                            <div class="card-info">
+                                <span>2室1厅</span>
+                                <span>南北通透</span>
+                                <span>近地铁</span>
+                            </div>
+                            <div class="card-footer">
+                                <span>更新于 2小时前</span>
+                                <span>经纪人：张三</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="property-card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/house2/400/300" alt="莲湖二手房房源">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-price">195万 <span>/ 75㎡</span></div>
+                            <h3 class="card-title">土门·桃园路 精装两居室 稀缺楼层</h3>
+                            <div class="card-info">
+                                <span>2室1厅</span>
+                                <span>中层</span>
+                                <span>满五唯一</span>
+                            </div>
+                            <div class="card-footer">
+                                <span>更新于 5小时前</span>
+                                <span>经纪人：李四</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="property-card">
+                        <div class="card-img">
+                            <span class="card-badge">特价</span>
+                            <img src="https://picsum.photos/seed/house3/400/300" alt="莲湖二手房房源">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-price">450万 <span>/ 120㎡</span></div>
+                            <h3 class="card-title">北大街·融侨馨苑 三室两厅 大平层</h3>
+                            <div class="card-info">
+                                <span>3室2厅</span>
+                                <span>豪华装修</span>
+                                <span>学区房</span>
+                            </div>
+                            <div class="card-footer">
+                                <span>更新于 昨天</span>
+                                <span>经纪人：王五</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="property-card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/house4/400/300" alt="莲湖二手房房源">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-price">135万 <span>/ 58㎡</span></div>
+                            <h3 class="card-title">环城西路·老小区 一室一厅 适合单身</h3>
+                            <div class="card-info">
+                                <span>1室1厅</span>
+                                <span>简装</span>
+                                <span>随时看房</span>
+                            </div>
+                            <div class="card-footer">
+                                <span>更新于 昨天</span>
+                                <span>经纪人：赵六</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                     <!-- Card 5 -->
+                     <article class="property-card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/house5/400/300" alt="莲湖二手房房源">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-price">310万 <span>/ 102㎡</span></div>
+                            <h3 class="card-title">劳动路·丰登南路 标准三居 环境好</h3>
+                            <div class="card-info">
+                                <span>3室2厅</span>
+                                <span>毛坯</span>
+                                <span>低楼层</span>
+                            </div>
+                            <div class="card-footer">
+                                <span>更新于 2天前</span>
+                                <span>经纪人：孙七</span>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- Card 6 -->
+                     <article class="property-card">
+                        <div class="card-img">
+                            <span class="card-badge">新上架</span>
+                            <img src="https://picsum.photos/seed/house6/400/300" alt="莲湖二手房房源">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-price">220万 <span>/ 85㎡</span></div>
+                            <h3 class="card-title">城北·未央路 精装两居 近地铁口</h3>
+                            <div class="card-info">
+                                <span>2室1厅</span>
+                                <span>精装</span>
+                                <span>近地铁</span>
+                            </div>
+                            <div class="card-footer">
+                                <span>更新于 3天前</span>
+                                <span>经纪人：周八</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <button style="padding: 12px 40px; background: white; border: 1px solid var(--border-color); color: var(--text-main); border-radius: 4px; cursor: pointer;">加载更多房源</button>
+                </div>
+            </section>
+
+            <!-- Guide & Info -->
+            <section class="guide-section" style="margin-top: 60px;">
+                <div class="section-header">
+                    <h2 class="section-title">购房指南</h2>
+                </div>
+                <div class="property-grid">
+                    <article style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                        <h3 style="font-size: 16px; margin-bottom: 10px;">二手房交易流程</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">了解从看房、签约、过户到交房的完整步骤，确保交易安全。</p>
+                        <a href="#" style="font-size: 13px; color: var(--primary-color); font-weight: 600;">阅读详情 &rarr;</a>
+                    </article>
+                    <article style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                        <h3 style="font-size: 16px; margin-bottom: 10px;">莲湖学区划分</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">2024年最新莲湖区中小学学区房范围查询及对口政策解读。</p>
+                        <a href="#" style="font-size: 13px; color: var(--primary-color); font-weight: 600;">查看学区 &rarr;</a>
+                    </article>
+                    <article style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                        <h3 style="font-size: 16px; margin-bottom: 10px;">二手房税费计算</h3>
+                        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">契税、个税、增值税详解，教您如何节省购房成本。</p>
+                        <a href="#" style="font-size: 13px; color: var(--primary-color); font-weight: 600;">计算器 &rarr;</a>
+                    </article>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">莲湖房价走势</h3>
+                <ul class="stats-list">
+                    <li>
+                        <span>本月均价</span>
+                        <span class="stats-val">25,450元/m²</span>
+                    </li>
+                    <li>
+                        <span>环比上月</span>
+                        <span class="stats-val trend-up">+0.52%</span>
+                    </li>
+                    <li>
+                        <span>同比去年</span>
+                        <span class="stats-val trend-down">-2.1%</span>
+                    </li>
+                    <li>
+                        <span>本月成交</span>
+                        <span class="stats-val">1,240套</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">推荐阅读</h3>
+                <ul class="guide-list">
+                    <li><a href="#">莲湖买房政策解读</a></li>
+                    <li><a href="#">如何在莲湖选房</a></li>
+                    <li><a href="#">莲湖租房注意事项</a></li>
+                    <li><a href="#">二手房验房技巧</a></li>
+                    <li><a href="#">贷款利率最新动态</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card" style="background: linear-gradient(to right, #0066cc, #004c99); color: white;">
+                <h3 class="sidebar-title" style="color: white; border-color: rgba(255,255,255,0.2);">联系房产专家</h3>
+                <p style="font-size: 13px; margin-bottom: 15px; opacity: 0.9;">专业顾问一对一免费咨询，为您匹配心仪房源。</p>
+                <button style="width: 100%; padding: 10px; background: white; color: var(--primary-color); border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">免费预约看房</button>
+            </div>
+        </aside>
+    </main>
+
+    <section class="faq-section">
+        <div class="faq-inner">
+            <div class="section-header">
+                <h2 class="section-title">常见问题 (FAQ)</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">莲湖二手房交易税费怎么算？</div>
+                <div class="faq-answer">二手房税费主要包含契税、增值税、个人所得税等。具体金额取决于房屋性质（新房/二手房）、面积、持有年限以及买家是否为首套。一般来说，满两年且是家庭唯一住房可免征增值税。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">莲湖哪些区域适合投资？</div>
+                <div class="faq-answer">目前莲湖区中北大街、龙首原等核心商圈配套成熟，交通便利，保值增值能力较强。如果您考虑学区房，建议关注高新路沿线及莲湖路附近的优质教育资源周边。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">网签备案有什么作用？</div>
+                <div class="faq-answer">网签是房地产交易管理系统中记录房源和交易信息的环节。完成网签可以防止“一房多卖”，保障买卖双方的合法权益，是后续办理过户、贷款的前提条件。</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>莲湖房产</h4>
+                <p style="font-size: 14px; line-height: 1.8; color: #bdc3c7;">专注西安莲湖区房产信息服务，致力于为用户提供真实、准确、及时的二手房房源信息及购房指南。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">联系合作</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <ul>
+                    <li><a href="#">房产资讯</a></li>
+                    <li><a href="#">房贷计算器</a></li>
+                    <li><a href="#">房价查询</a></li>
+                    <li><a href="#">小区点评</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>客服热线：400-123-4567</li>
+                    <li>工作时间：9:00 - 18:00</li>
+                    <li>电子邮箱：support@lianhu.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 莲湖房产信息服务网 版权所有. 本站数据仅供参考，具体以实际交易为准.
+        </div>
+    </footer>
+
+</body>
+                              </html>
