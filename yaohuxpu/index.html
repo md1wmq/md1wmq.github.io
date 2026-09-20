@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="妖狐x仆ss图片资源站，提供高清壁纸、角色立绘、插画集及官方宣传图下载。收录神乐、夜空、白鬼等角色精美图片，满足二次元收藏与桌面美化需求。">
+    <meta name="keywords" content="妖狐x仆ss图片,妖狐x仆ss壁纸,神乐夜空,妖狐x仆ss插画,二次元壁纸">
+    <title>妖狐x仆ss图片-高清角色壁纸与插画资源站</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5e3a63;
+            --secondary-color: #8e44ad;
+            --accent-color: #f1c40f;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --bg-body: #fdf6f9;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: var(--spacing-unit) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #fff;
+            padding: 40px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--secondary-color);
+            background: transparent;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover, .btn.active {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: #fff;
+            border-color: var(--secondary-color);
+        }
+
+        /* Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(94, 58, 99, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .download-btn {
+            background: #fff;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar & Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                gap: 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Sidebar Styles */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        .role-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .role-list a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .role-list a:hover {
+            background-color: #f8f0f8;
+        }
+
+        .role-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .role-info h4 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .role-info p {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Utility */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+        .badge-hd { background-color: #e74c3c; color: white; }
+        .badge-wp { background-color: #3498db; color: white; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>✦</span> 妖狐x仆ss图片库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">高清壁纸</a></li>
+                    <li><a href="#">角色立绘</a></li>
+                    <li><a href="#">插画集</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>妖狐×仆SS 高清资源中心</h1>
+                <p>收录神乐、夜空、白鬼等角色精美壁纸与插画，满足桌面美化与二次元收藏需求。</p>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-bar">
+            <div class="filter-group">
+                <button class="btn active">全部</button>
+                <button class="btn">神乐</button>
+                <button class="btn">夜空</button>
+                <button class="btn">白鬼</button>
+                <button class="btn">千鹤</button>
+            </div>
+            <div class="filter-group" style="margin-left: auto;">
+                <span style="font-size: 0.9rem; color: #666;">排序：</span>
+                <button class="btn btn-primary">最新上传</button>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="main-layout">
+            <section class="gallery-grid">
+                
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/yokai1/400/300" alt="神乐 侧脸特写">
+                        <div class="card-overlay">
+                            <a href="#" class="download-btn">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">神乐 侧脸特写</h3>
+                        <div class="card-meta">
+                            <span><span class="badge badge-hd">HD</span> 1920x1080</span>
+                            <span>2023-10-15</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/yokai2/400/300" alt="夜空 阳光下的微笑">
+                        <div class="card-overlay">
+                            <a href="#" class="download-btn">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">夜空 阳光下的微笑</h3>
+                        <div class="card-meta">
+                            <span><span class="badge badge-hd">HD</span> 2560x1440</span>
+                            <span>2023-10-12</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/yokai3/400/300" alt="白鬼 炫酷战斗姿态">
+                        <div class="card-overlay">
+                            <a href="#" class="download-btn">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">白鬼 炫酷战斗姿态</h3>
+                        <div class="card-meta">
+                            <span><span class="badge badge-hd">HD</span> 3840x2160</span>
+                            <span>2023-10-10</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/yokai4/400/300" alt="千鹤 校园生活">
+                        <div class="card-overlay">
+                            <a href="#" class="download-btn">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">千鹤 校园生活</h3>
+                        <div class="card-meta">
+                            <span><span class="badge badge-wp">壁纸</span> 1080x1920</span>
+                            <span>2023-10-08</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/yokai5/400/300" alt="全员合影 横版">
+                        <div class="card-overlay">
+                            <a href="#" class="download-btn">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">全员合影 横版</h3>
+                        <div class="card-meta">
+                            <span><span class="badge badge-hd">HD</span> 1920x1200</span>
+                            <span>2023-10-05</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/yokai6/400/300" alt="神乐与夜空 互动">
+                        <div class="card-overlay">
+                            <a href="#" class="download-btn">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">神乐与夜空 互动</h3>
+                        <div class="card-meta">
+                            <span><span class="badge badge-wp">壁纸</span> 1080x1920</span>
+                            <span>2023-10-01</span>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Sidebar -->
+            <aside>
+                <!-- Character List Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">主要角色</h3>
+                    <ul class="role-list">
+                        <li>
+                            <a href="#">
+                                <div class="role-icon" style="background-color: #e91e63;">神乐</div>
+                                <div class="role-info">
+                                    <h4>神乐</h4>
+                                    <p>鬼族少女 / 守护者</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="role-icon" style="background-color: #9c27b0;">夜空</div>
+                                <div class="role-info">
+                                    <h4>夜空</h4>
+                                    <p>人类学生 / 主角</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="role-icon" style="background-color: #607d8b;">白鬼</div>
+                                <div class="role-info">
+                                    <h4>白鬼</h4>
+                                    <p>神乐的仆从 / 真正身份</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="role-icon" style="background-color: #00bcd4;">千鹤</div>
+                                <div class="role-info">
+                                    <h4>千鹤</h4>
+                                    <p>学生会会长 / 神秘少女</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Info Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">资源说明</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                        本站收录的图片资源仅供个人壁纸美化与二次元收藏使用，请勿用于商业用途。
+                    </p>
+                    <ul style="font-size: 0.85rem; color: #888; list-style: disc; padding-left: 20px;">
+                        <li style="margin-bottom: 5px;">所有图片均为高清扫描或官方图。</li>
+                        <li style="margin-bottom: 5px;">支持手机与电脑壁纸设置。</li>
+                        <li>部分图片为AI生成或同人创作。</li>
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系站长</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.85rem;">
+                &copy; 2023 妖狐x仆ss图片库. All Rights Reserved. 本站内容均来自网络收集整理。
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
