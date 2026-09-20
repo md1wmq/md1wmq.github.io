@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黑河社区 - 黑河本地生活资讯、民生热点讨论、二手交易信息、相亲交友及便民服务交流平台。">
+    <meta name="keywords" content="黑河社区, 黑河论坛, 黑河资讯, 黑河房产, 黑河二手, 黑河生活">
+    <title>黑河社区 - 黑河本地生活资讯与便民服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-light: #f8f9fa;
+            --text-dark: #333;
+            --text-gray: #666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+        }
+
+        .top-bar .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            background: #fff;
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            border: none;
+            flex: 1;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+        }
+
+        .search-box button {
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Layout Grid */
+        .container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Main Content */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .post-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            background: #ddd;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ccc"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+            background-size: cover;
+        }
+
+        .post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .post-excerpt {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .hot-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot-list li a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hot-list li .hot-num {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .cat-item {
+            background: var(--bg-light);
+            padding: 0.8rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 3rem 1rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-col p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .user-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <span>欢迎来到黑河社区 - 连接黑河人的线上家园</span>
+                <div>
+                    <a href="#">登录</a> | <a href="#">注册</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-container">
+            <a href="#" class="logo">黑河<span>社区</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">黑河新闻</a></li>
+                    <li><a href="#">房产楼市</a></li>
+                    <li><a href="#">二手交易</a></li>
+                    <li><a href="#">相亲交友</a></li>
+                    <li><a href="#">生活服务</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-outline">发布信息</button>
+                <button class="btn btn-primary">发帖</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>发现黑河，分享生活</h1>
+        <p>汇聚黑河本地资讯，畅聊生活点滴，互助邻里温情。</p>
+        <form class="search-box" onsubmit="event.preventDefault();">
+            <input type="text" placeholder="搜索帖子、分类或用户...">
+            <button type="submit">搜索</button>
+        </form>
+    </section>
+
+    <main class="container">
+        <!-- Main Feed -->
+        <div class="main-content">
+            <div class="section-title">
+                <h2>最新热议</h2>
+                <a href="#" style="font-size: 0.9rem; color: var(--accent-color);">查看更多 &raquo;</a>
+            </div>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="avatar"></div>
+                    <span>黑河老街坊</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span>2小时前</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span class="tag">民生</span>
+                </div>
+                <h3 class="post-title"><a href="#">关于黑河市区部分路段即将进行管网改造施工的公告</a></h3>
+                <p class="post-excerpt">市住建局发布通知，为了提升城市排水能力，将于本周六起对东兴街至西兴路路段进行封闭施工，请广大市民提前规划出行路线，避免拥堵。</p>
+                <div class="post-footer">
+                    <span>💬 45 回复</span>
+                    <span>👍 128 点赞</span>
+                    <span>👁️ 1.2k 浏览</span>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="avatar" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%23ddd\"><path d=\"M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\"/></svg>');"></div>
+                    <span>黑河房产君</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span>5小时前</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span class="tag">房产</span>
+                </div>
+                <h3 class="post-title"><a href="#">黑河近期二手房市场分析：房价走势如何？</a></h3>
+                <p class="post-excerpt">随着年底临近，黑河各区域的二手房成交量有所波动。小编整理了爱辉区和瑷珲区近期的挂牌均价及成交数据，供大家参考投资或置换。</p>
+                <div class="post-footer">
+                    <span>💬 82 回复</span>
+                    <span>👍 256 点赞</span>
+                    <span>👁️ 3.5k 浏览</span>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="avatar" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%23ddd\"><path d=\"M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\"/></svg>');"></div>
+                    <span>爱辉市民</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span>8小时前</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span class="tag">二手</span>
+                </div>
+                <h3 class="post-title"><a href="#">自家闲置物品转让，九成新山地自行车，低价出</a></h3>
+                <p class="post-excerpt">因为搬家原因，家里有一辆捷安特山地自行车转让，平时保养得很好，链条刚上过油，价格好商量，自提或者同城面交。</p>
+                <div class="post-footer">
+                    <span>💬 12 回复</span>
+                    <span>👍 8 点赞</span>
+                    <span>👁️ 560 浏览</span>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="avatar" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%23ddd\"><path d=\"M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\"/></svg>');"></div>
+                    <span>黑河相亲角</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span>昨天</span>
+                    <span style="margin: 0 0.5rem;">•</span>
+                    <span class="tag">交友</span>
+                </div>
+                <h3 class="post-title"><a href="#">诚意征婚：85年大哥寻找另一半，有房有车</a></h3>
+                <p class="post-excerpt">在黑河工作生活，性格温和，工作稳定，真诚寻找一位善良、顾家的女士共度余生，非诚勿扰。</p>
+                <div class="post-footer">
+                    <span>💬 156 回复</span>
+                    <span>👍 320 点赞</span>
+                    <span>👁️ 8.9k 浏览</span>
+                </div>
+            </article>
+        </div>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="widget">
+                <h3>热门版块</h3>
+                <div class="category-grid">
+                    <a href="#" class="cat-item">本地新闻</a>
+                    <a href="#" class="cat-item">房产楼市</a>
+                    <a href="#" class="cat-item">二手交易</a>
+                    <a href="#" class="cat-item">招聘求职</a>
+                    <a href="#" class="cat-item">生活服务</a>
+                    <a href="#" class="cat-item">情感咨询</a>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3>24小时热榜</h3>
+                <ul class="hot-list">
+                    <li><a href="#"><span>黑河最新发布：关于2023年冬季供暖保障的通知</span> <span class="hot-num">9.8w</span></a></li>
+                    <li><a href="#"><span>黑河至哈尔滨高铁时刻表调整通知</span> <span class="hot-num">7.5w</span></a></li>
+                    <li><a href="#"><span>【失物招领】在中央街附近捡到黑色双肩包</span> <span class="hot-num">5.2w</span></a></li>
+                    <li><a href="#"><span>黑河市2024年医保缴费标准一览</span> <span class="hot-num">4.1w</span></a></li>
+                    <li><a href="#"><span>寻找当年在黑河农场工作的老知青</span> <span class="hot-num">3.9w</span></a></li>
+                    <li><a href="#"><span>黑河最新公交线路优化调整公告</span> <span class="hot-num">3.4w</span></a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>社区公告</h3>
+                <ul style="font-size: 0.9rem; color: #666;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><a href="#">关于规范社区发帖行为的倡议书</a></li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><a href="#">黑河社区用户积分规则更新</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="#">2024年度优秀版主评选活动</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于黑河社区</h3>
+                <p>黑河社区致力于打造黑河本地最活跃、最真实、最有温度的线上交流平台。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#">社区公约</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">联系站长</a></li>
+                    <li><a href="#">广告合作</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门分类</h3>
+                <ul>
+                    <li><a href="#">黑河新闻</a></li>
+                    <li><a href="#">房屋出租</a></li>
+                    <li><a href="#">二手车</a></li>
+                    <li><a href="#">征婚交友</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <p>微信公众号：黑河社区</p>
+                <p>新浪微博：@黑河社区</p>
+                <p>客服电话：0456-xxxxxxx</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 黑河社区 版权所有 | ICP备黑河ICP备xxxxxxxx号</p>
+        </div>
+    </footer>
+
+</body>
+                  </html>
