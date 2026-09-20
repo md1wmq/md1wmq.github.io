@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财迷仙窍 - 修真界财富攻略与灵石获取指南</title>
+    <meta name="description" content="财迷仙窍为您提供修真界灵石获取、法宝拍卖、洞府经营等实用攻略。从炼丹到灵植，全方位解析如何利用财迷法则在修真界快速积累资源，打造顶级修真宗门。">
+    <meta name="keywords" content="财迷仙窍, 修真小说, 灵石获取, 修真攻略, 法宝拍卖, 炼丹资源">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4af37; /* 修真金 */
+            --primary-dark: #aa8c2c;
+            --bg-dark: #0f0f13;
+            --bg-card: #1a1a20;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-red: #b83b3b;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 15, 19, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 15, 19, 0.7), rgba(15, 15, 19, 0.9)), url('https://picsum.photos/seed/immortal/1920/800') no-repeat center center/cover;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: #000;
+            padding: 12px 35px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Resource Guide (Core Content) */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-main {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .guide-item {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .guide-header {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .guide-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .guide-content {
+            padding: 20px;
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .guide-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .guide-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .sidebar {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .price-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+
+        .price-name {
+            font-size: 0.9rem;
+        }
+
+        .price-val {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Auction Section */
+        .auction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .auction-card {
+            background: var(--bg-card);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .auction-card:hover {
+            transform: scale(1.02);
+        }
+
+        .auction-img {
+            height: 150px;
+            background-color: #333;
+            position: relative;
+        }
+
+        .auction-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .auction-info {
+            padding: 15px;
+        }
+
+        .auction-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .auction-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bid-btn {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .bid-btn:hover {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0c;
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            }
+
+            .nav-wrapper nav.active {
+                display: flex;
+            }
+
+            .nav-wrapper nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>财迷仙窍</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#guide">攻略指南</a></li>
+                    <li><a href="#resources">资源行情</a></li>
+                    <li><a href="#auction">法宝拍卖</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>修真界资源管理专家</h1>
+                <p>汇聚《财迷仙窍》核心设定，解析灵石流通、法宝变现与宗门经济。助你在修真界建立稳固的财富护城河，从散修逆袭为顶级宗主。</p>
+                <a href="#guide" class="cta-btn">开启财富之路</a>
+            </div>
+        </section>
+
+        <!-- Core Features -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">核心价值</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>灵石流通体系</h3>
+                        <p>深度解析低阶灵石、中品灵石与高阶灵石在不同修真地图的汇率波动与兑换策略。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔨</div>
+                        <h3>法宝变现攻略</h3>
+                        <p>掌握鉴定、拍卖与黑市交易技巧，避免法宝被压价，实现资源最大化利用。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🏗️</div>
+                        <h3>宗门经济构建</h3>
+                        <p>学习如何通过灵田种植、矿洞开采与丹药生产，建立自给自足的宗门经济体系。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Guide -->
+        <section id="guide" class="section">
+            <div class="container">
+                <h2 class="section-title">财富获取指南</h2>
+                <div class="guide-grid">
+                    <div class="guide-main">
+                        <article class="guide-item">
+                            <div class="guide-header">
+                                <h3>炼丹术：高阶炼金术</h3>
+                                <span class="tag">生产制造</span>
+                            </div>
+                            <div class="guide-content">
+                                <p>炼丹是修真界最暴利的产业之一。掌握《财迷仙窍》中的炼丹秘法，不仅能自用，更能通过倒卖丹药积累大量灵石。重点在于控制火候与药材配比，提高出丹率。</p>
+                                <h4>核心技巧：</h4>
+                                <ul class="guide-list">
+                                    <li>利用低阶残丹提炼精华，降低成本。</li>
+                                    <li>针对不同体质修士定制丹药，提高溢价。</li>
+                                    <li>建立稳定的丹药回收渠道，避免库存积压。</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="guide-item">
+                            <div class="guide-header">
+                                <h3>洞府经营：空间变现</h3>
+                                <span class="tag">空间利用</span>
+                            </div>
+                            <div class="guide-content">
+                                <p>拥有仙窍空间的修士，可通过种植灵草、饲养灵兽或开设洞府旅馆来获取被动收入。本指南提供灵植的最佳种植周期与灵兽的市场需求分析。</p>
+                                <h4>核心技巧：</h4>
+                                <ul class="guide-list">
+                                    <li>灵植选择：优先种植市场需求大、生长周期短的草药。</li>
+                                    <li>空间分工：将洞府划分为种植区、加工区与居住区。</li>
+                                    <li>异界贸易：利用空间特性进行跨位面资源置换。</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+
+                    <aside class="sidebar">
+                        <h3>灵石实时行情</h3>
+                        <div class="price-list">
+                            <div class="price-item">
+                                <span class="price-name">下品灵石</span>
+                                <span class="price-val">1:1000</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-name">中品灵石</span>
+                                <span class="price-val">1:500</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-name">上品灵石</span>
+                                <span class="price-val">1:200</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-name">极品灵石</span>
+                                <span class="price-val">1:50</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-name">高阶灵石</span>
+                                <span class="price-val">1:10</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; padding: 10px; background: rgba(184, 59, 59, 0.1); border: 1px solid rgba(184, 59, 59, 0.3); border-radius: 4px; font-size: 0.85rem; color: var(--accent-red);">
+                            <strong>市场提示：</strong> 近期灵草价格波动较大，建议囤积防御类灵草。
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auction Section -->
+        <section id="auction" class="section">
+            <div class="container">
+                <h2 class="section-title">热门法宝拍卖</h2>
+                <div class="auction-grid">
+                    <article class="auction-card">
+                        <div class="auction-img">
+                            <img src="https://picsum.photos/seed/sword/300/200" alt="飞剑">
+                        </div>
+                        <div class="auction-info">
+                            <h4>青霜流云剑</h4>
+                            <div class="auction-meta">
+                                <span>攻击力：S级</span>
+                                <span>起拍：500灵石</span>
+                            </div>
+                            <button class="bid-btn">立即出价</button>
+                        </div>
+                    </article>
+                    <article class="auction-card">
+                        <div class="auction-img">
+                            <img src="https://picsum.photos/seed/pill/300/200" alt="丹药">
+                        </div>
+                        <div class="auction-info">
+                            <h4>九转还魂丹</h4>
+                            <div class="auction-meta">
+                                <span>稀有度：传说</span>
+                                <span>起拍：2000灵石</span>
+                            </div>
+                            <button class="bid-btn">立即出价</button>
+                        </div>
+                    </article>
+                    <article class="auction-card">
+                        <div class="auction-img">
+                            <img src="https://picsum.photos/seed/map/300/200" alt="地图">
+                        </div>
+                        <div class="auction-info">
+                            <h4>上古遗迹地图</h4>
+                            <div class="auction-meta">
+                                <span>类型：探索</span>
+                                <span>起拍：300灵石</span>
+                            </div>
+                            <button class="bid-btn">立即出价</button>
+                        </div>
+                    </article>
+                    <article class="auction-card">
+                        <div class="auction-img">
+                            <img src="https://picsum.photos/seed/armor/300/200" alt="法宝">
+                        </div>
+                        <div class="auction-info">
+                            <h4>玄武护心镜</h4>
+                            <div class="auction-meta">
+                                <span>防御力：A级</span>
+                                <span>起拍：800灵石</span>
+                            </div>
+                            <button class="bid-btn">立即出价</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="container">
+                <h2 class="section-title">修真财富问答</h2>
+                <div class="faq-item">
+                    <div class="faq-question">仙窍空间是否可以无限扩展？</div>
+                    <div class="faq-answer">仙窍的扩展通常与修士的境界和悟性挂钩，部分特殊血脉或通过寻找上古遗迹中的窍穴碎片也可实现扩展，但极其罕见。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何在拍卖行避免被坑？</div>
+                    <div class="faq-answer">建议在出价前仔细查验法宝的真伪，必要时请专业鉴定师协助。同时关注历史成交记录，避免盲目跟风高价竞拍。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">散修如何积累第一桶金？</div>
+                    <div class="faq-answer">散修应优先寻找高回报但风险适中的任务，如护送商队或探索小型秘境。同时积累人脉，通过信息差进行倒卖。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于财迷仙窍</h4>
+                    <p>本站致力于为修真爱好者提供详尽的资源攻略与经济体系解析，还原修真界的残酷与机遇。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#guide">财富攻略</a></li>
+                        <li><a href="#resources">资源市场</a></li>
+                        <li><a href="#auction">法宝拍卖</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>修真法则</h4>
+                    <ul>
+                        <li><a href="#">天道酬勤</a></li>
+                        <li><a href="#">因果循环</a></li>
+                        <li><a href="#">资源为王</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 财迷仙窍攻略网. All rights reserved. 修真之路，道阻且长。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        mobileBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) otherItem.classList.remove('active');
+                });
+                // Toggle current
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
