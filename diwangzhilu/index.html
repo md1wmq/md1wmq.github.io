@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帝王之路黑道颠峰 - 沉浸式黑道史诗与权力游戏</title>
+    <meta name="description" content="帝王之路黑道颠峰：探索黑帮帝国的崛起之路，从街头混混到地下皇帝的权谋博弈。提供深度人物传记、经典影视作品解析、黑道文化研究及权力生存法则指南。">
+    <meta name="keywords" content="帝王之路黑道颠峰, 黑帮电影, 权力博弈, 暴力美学, 犯罪小说, 黑道文化, 沉浸式阅读">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f0f13;
+            --bg-card: #1a1a20;
+            --text-main: #e0e0e0;
+            --text-muted: #888899;
+            --accent-red: #d32f2f;
+            --accent-gold: #c5a059;
+            --border-color: #2a2a35;
+            --font-serif: 'Songti SC', 'SimSun', serif;
+            --font-sans: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: rgba(15, 15, 19, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(15, 15, 19, 0.3), var(--bg-dark)), 
+                        url('https://picsum.photos/seed/blackcity/1920/1080') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        h1 .highlight {
+            color: var(--accent-gold);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Ranking List */
+        .ranking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .rank-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .rank-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.05);
+            z-index: 1;
+        }
+
+        .rank-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: filter 0.3s;
+        }
+
+        .rank-card:hover .rank-img {
+            filter: grayscale(0%);
+        }
+
+        .rank-info {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rank-category {
+            color: var(--accent-red);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .rank-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .rank-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(26,26,32,0.5) 100%);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Content Layout */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .article-item {
+            display: flex;
+            gap: 30px;
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s;
+        }
+
+        .article-item:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .article-thumb {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .article-content {
+            flex: 1;
+        }
+
+        .article-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .article-excerpt {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            border-left: 3px solid var(--accent-red);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.05);
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            border-radius: 2px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(45deg, #1a1a20, #0f0f13);
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .quote-author {
+            color: var(--accent-gold);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0d;
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .content-layout { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .article-item { flex-direction: column; }
+            .article-thumb { width: 100%; height: 200px; }
+            .hero { height: 500px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>👑</span> 帝王之路
+            </a>
+            <nav class="nav-links">
+                <a href="#">权力博弈</a>
+                <a href="#">经典作品</a>
+                <a href="#">生存法则</a>
+                <a href="#">深度分析</a>
+                <a href="#">社区讨论</a>
+            </nav>
+            <button class="search-btn">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">沉浸式黑道史诗</span>
+                <h1>帝王之路 <span class="highlight">黑道颠峰</span></h1>
+                <p class="hero-desc">
+                    在这个充满血与火的地下世界里，从街头混混到地下皇帝，唯有智慧、冷酷与绝对的力量才能登顶。探索权力的真相，解读黑道文化的深层逻辑。
+                </p>
+                <div class="cta-group">
+                    <button class="btn btn-primary">开始征程</button>
+                    <button class="btn btn-secondary">阅读指南</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚔️</div>
+                    <h3 class="feature-title">权力博弈</h3>
+                    <p class="feature-text">深度剖析帮派内斗、家族传承与利益分配的残酷规则，揭示权力更迭背后的血腥与权谋。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📜</div>
+                    <h3 class="feature-title">经典作品</h3>
+                    <p class="feature-text">收录全球顶尖黑道小说、漫画及影视作品，从《教父》到《半泽直树》，满足你对地下世界的所有幻想。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">生存法则</h3>
+                    <p class="feature-text">总结黑道生存的智慧与潜规则，探讨在极端环境下人性的异化与坚守。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Ranking -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">权力巅峰榜</h2>
+                <span class="section-subtitle">最受推崇的黑道史诗</span>
+            </div>
+            <div class="ranking-grid">
+                <!-- Card 1 -->
+                <article class="rank-card">
+                    <div class="rank-number">01</div>
+                    <img src="https://picsum.photos/seed/godfather/400/500" alt="教父" class="rank-img">
+                    <div class="rank-info">
+                        <span class="rank-category">经典影视</span>
+                        <h3 class="rank-title">教父：权力的艺术</h3>
+                        <p class="rank-excerpt">柯里昂家族的兴衰史，不仅是黑帮电影的开山之作，更是关于家庭、责任与权力的教科书。</p>
+                        <div class="rank-meta">
+                            <span>评分: 9.8</span>
+                            <span>阅读: 120万</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 2 -->
+                <article class="rank-card">
+                    <div class="rank-number">02</div>
+                    <img src="https://picsum.photos/seed/yakuza/400/500" alt="极恶非道" class="rank-img">
+                    <div class="rank-info">
+                        <span class="rank-category">漫画小说</span>
+                        <h3 class="rank-title">极恶非道：东京暗网</h3>
+                        <p class="rank-excerpt">赤冢不二夫笔下的暴力美学，通过斋藤一的角色，展现了黑道中忠诚与背叛的极致冲突。</p>
+                        <div class="rank-meta">
+                            <span>评分: 9.5</span>
+                            <span>阅读: 98万</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 3 -->
+                <article class="rank-card">
+                    <div class="rank-number">03</div>
+                    <img src="https://picsum.photos/seed/mob/400/500" alt="黑道家族" class="rank-img">
+                    <div class="rank-info">
+                        <span class="rank-category">深度解析</span>
+                        <h3 class="rank-title">黑道家族：美国梦的阴影</h3>
+                        <p class="rank-excerpt">比教父更写实，更残酷。探讨现代黑帮如何在法治社会的夹缝中求生存的挣扎。</p>
+                        <div class="rank-meta">
+                            <span>评分: 9.4</span>
+                            <span>阅读: 85万</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Content Area -->
+        <section class="container">
+            <div class="content-layout">
+                <!-- Articles -->
+                <div class="article-list">
+                    <div class="section-header" style="margin-bottom: 20px; border:none; padding-bottom:0;">
+                        <h2 class="section-title" style="font-size: 1.5rem;">最新深度文章</h2>
+                    </div>
+
+                    <article class="article-item">
+                        <img src="https://picsum.photos/seed/power/300/200" alt="权力" class="article-thumb">
+                        <div class="article-content">
+                            <span class="rank-category">权力分析</span>
+                            <a href="#" class="article-title">黑道崛起的三大核心要素：资本、暴力与秩序</a>
+                            <p class="article-excerpt">一个帮派要成为地下皇帝，仅仅拥有暴力是不够的。必须建立合法的经济基础，并制定严苛的内部秩序。本文将详细拆解这三个要素如何相互作用。</p>
+                            <div class="article-meta">2023年10月24日 · 作者：暗夜行者</div>
+                        </div>
+                    </article>
+
+                    <article class="article-item">
+                        <img src="https://picsum.photos/seed/loyalty/300/200" alt="忠诚" class="article-thumb">
+                        <div class="article-content">
+                            <span class="rank-category">人物传记</span>
+                            <a href="#" class="article-title">从街头混混到教父：柯里昂的崛起之路</a>
+                            <p class="article-excerpt">维托·柯里昂究竟是如何一步步掌控纽约地下世界的？通过分析他的决策逻辑和人际关系网，我们可以窥见黑道领袖的养成法则。</p>
+                            <div class="article-meta">2023年10月22日 · 作者：历史观察员</div>
+                        </div>
+                    </article>
+
+                    <article class="article-item">
+                        <img src="https://picsum.photos/seed/war/300/200" alt="战争" class="article-thumb">
+                        <div class="article-content">
+                            <span class="rank-category">战术指南</span>
+                            <a href="#" class="article-title">帮派战争中的情报战与心理战</a>
+                            <p class="article-excerpt">在黑道颠峰的较量中，情报往往比枪炮更重要。本文探讨了如何通过信息不对称来瓦解对手的防线。</p>
+                            <div class="article-meta">2023年10月20日 · 作者：战术分析师</div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar -->
+                <aside>
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">热门标签</h4>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">黑帮电影</a>
+                            <a href="#" class="tag">犯罪小说</a>
+                            <a href="#" class="tag">暴力美学</a>
+                            <a href="#" class="tag">权谋</a>
+                            <a href="#" class="tag">黑道文化</a>
+                            <a href="#" class="tag">教父</a>
+                            <a href="#" class="tag">枭雄</a>
+                            <a href="#" class="tag">地下世界</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">生存法则</h4>
+                        <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 2;">
+                            <li>1. 说话要慢，出手要狠</li>
+                            <li>2. 永远不要相信任何人</li>
+                            <li>3. 金钱是最好的护身符</li>
+                            <li>4. 忠诚是有价码的</li>
+                            <li>5. 活着才是硬道理</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget" style="background: #1a1a20; border: 1px solid var(--accent-gold);">
+                        <h4 class="widget-title" style="color: var(--accent-gold);">加入帝国</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">订阅我们的周刊，获取最新的黑道资讯与深度分析。</p>
+                        <input type="email" placeholder="输入您的邮箱" style="width: 100%; padding: 10px; background: #0f0f13; border: 1px solid #333; color: white; margin-bottom: 10px;">
+                        <button class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">订阅</button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <p class="quote-text">“在这个世界上，有些路只能一个人走，有些责任只能一个人扛。”</p>
+                <p class="quote-author">——《帝王之路》编者按</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>帝王之路</h4>
+                    <p>致力于挖掘黑道文化背后的权力逻辑与人性深渊，为您提供最沉浸的地下世界体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">权力博弈</a></li>
+                        <li><a href="#">经典作品</a></li>
+                        <li><a href="#">生存法则</a></li>
+                        <li><a href="#">深度解析</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">犯罪电影网</a></li>
+                        <li><a href="#">暗网论坛</a></li>
+                        <li><a href="#">地下文学</a></li>
+                        <li><a href="#">暴力美学</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 帝王之路黑道颠峰 版权所有 | 本站内容仅供学习交流，请勿模仿现实中的非法行为。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
