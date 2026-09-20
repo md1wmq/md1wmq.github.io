@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="永年吧 - 永年区本地生活、资讯、论坛与社区交流平台。提供最新新闻、便民服务、房产信息、二手交易及本地活动资讯。">
+    <meta name="keywords" content="永年吧,永年,邯郸永年,永年区论坛,永年新闻,永年便民,永年房产">
+    <title>永年吧 - 永年区本地生活资讯与便民服务社区</title>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --primary-hover: #b71c1c;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --bg-body: #f4f5f7;
+            --bg-card: #ffffff;
+            --border-color: #e0e0e0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 40px 0;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-lg);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 32px;
+            margin-bottom: var(--spacing-md);
+            color: #b71c1c;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-lg);
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            display: block;
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .section-more {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Post List */
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .post-item {
+            background: var(--bg-card);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: var(--spacing-sm);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-thumb {
+            width: 160px;
+            height: 120px;
+            background-color: #eee;
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .post-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .widget {
+            background: var(--bg-card);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-list .rank {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #f0f0f0;
+            color: var(--text-gray);
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .hot-list li:nth-child(1) .rank { background-color: #ff4d4f; color: white; }
+        .hot-list li:nth-child(2) .rank { background-color: #ff7a45; color: white; }
+        .hot-list li:nth-child(3) .rank { background-color: #ffc53d; color: white; }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .category-item {
+            text-align: center;
+            padding: 12px 8px;
+            background-color: #f9f9f9;
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+        }
+
+        .category-item:hover {
+            background-color: var(--primary-color);
+        }
+
+        .category-item:hover a, .category-item:hover span {
+            color: white;
+        }
+
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 40px 0 20px;
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: 30px;
+        }
+
+        .footer-info h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3d3d3d;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                padding: var(--spacing-md) 0;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile, normally would be a hamburger menu */
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .hero-text p {
+                margin: 0 auto var(--spacing-lg);
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .post-item {
+                flex-direction: column;
+            }
+
+            .post-thumb {
+                width: 100%;
+                height: 180px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner flex items-center justify-between">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+                永年吧<span>Local</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">资讯</a></li>
+                    <li><a href="#">房产</a></li>
+                    <li><a href="#">二手</a></li>
+                    <li><a href="#">分类信息</a></li>
+                    <li><a href="#">生活服务</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>发现永年，连接你我</h1>
+                    <p>永年吧是本地最大的生活社区。在这里获取最新鲜的永年区新闻，发布房屋租售信息，寻找失物招领，或者参与热门话题讨论。</p>
+                    <div class="flex" style="gap: 10px;">
+                        <a href="#" class="btn btn-primary">发布帖子</a>
+                        <a href="#" class="btn btn-outline">浏览分类</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Using a generic placeholder that looks like a city skyline -->
+                    <img src="https://picsum.photos/seed/yongniancity/600/400" alt="永年城市风貌">
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-layout">
+                <!-- Main Content Area -->
+                <section class="content-area">
+                    <div class="section-header">
+                        <h2 class="section-title">热门推荐</h2>
+                        <a href="#" class="section-more">查看更多 &raquo;</a>
+                    </div>
+
+                    <div class="post-list">
+                        <!-- Post 1 -->
+                        <article class="post-item">
+                            <div class="post-content">
+                                <a href="#" class="post-title">关于永年区近期老旧小区改造工程的公示通知</a>
+                                <div class="post-meta">
+                                    <span>📅 2023-10-24</span>
+                                    <span>📍 永年区住建局</span>
+                                    <span>💬 128 回复</span>
+                                    <span>👁️ 3.2k 阅读</span>
+                                </div>
+                                <p class="post-excerpt">为改善居民居住环境，提升城市品质，永年区计划对广府路周边及如意湖片区内的10个老旧小区进行综合改造。主要涉及外墙粉刷、路面硬化、管网更新及停车位规划等内容...</p>
+                            </div>
+                            <div class="post-thumb">
+                                <img src="https://picsum.photos/seed/reform/160/120" alt="老旧小区改造">
+                            </div>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="post-item">
+                            <div class="post-content">
+                                <a href="#" class="post-title">【紧急寻人】在广府古城附近走失一名老人，身穿灰色夹克</a>
+                                <div class="post-meta">
+                                    <span>📅 2023-10-23</span>
+                                    <span>📍 广府古城</span>
+                                    <span>💬 45 回复</span>
+                                    <span>👁️ 1.5k 阅读</span>
+                                </div>
+                                <p class="post-excerpt">家属万分焦急，如有知情者请及时联系。老人约70岁，身高1米65，听力不佳，走失时身穿深灰色羽绒服。请大家帮忙转发扩散...</p>
+                            </div>
+                            <div class="post-thumb">
+                                <img src="https://picsum.photos/seed/search/160/120" alt="寻人启事">
+                            </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="post-item">
+                            <div class="post-content">
+                                <a href="#" class="post-title">永年太极拳文化节筹备工作全面展开，诚邀八方来客</a>
+                                <div class="post-meta">
+                                    <span>📅 2023-10-22</span>
+                                    <span>📍 广府太极学校</span>
+                                    <span>💬 89 回复</span>
+                                    <span>👁️ 5.6k 阅读</span>
+                                </div>
+                                <p class="post-excerpt">一年一度的永年太极拳文化节即将拉开帷幕，今年的活动将增加线上直播互动环节。不仅有精彩的武术表演，还将举办国际太极拳交流大会...</p>
+                            </div>
+                            <div class="post-thumb">
+                                <img src="https://picsum.photos/seed/taiji/160/120" alt="太极拳文化节">
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 30px;">
+                        <h2 class="section-title">最新资讯</h2>
+                        <a href="#" class="section-more">查看更多 &raquo;</a>
+                    </div>
+
+                    <div class="post-list">
+                         <article class="post-item">
+                            <div class="post-content">
+                                <a href="#" class="post-title">永年区发布秋季森林防火温馨提示</a>
+                                <div class="post-meta">
+                                    <span>📅 2023-10-21</span>
+                                    <span>📍 森林防火指挥部</span>
+                                    <span>💬 12 回复</span>
+                                </div>
+                                <p class="post-excerpt">当前秋季天干物燥，森林火险等级较高。请广大市民严格遵守森林防火规定，严禁在林区吸烟、野炊或使用明火。</p>
+                            </div>
+                        </article>
+                        <article class="post-item">
+                            <div class="post-content">
+                                <a href="#" class="post-title">本地二手市场：几款九成新电瓶车低价转让</a>
+                                <div class="post-meta">
+                                    <span>📅 2023-10-20</span>
+                                    <span>👤 二手交易区</span>
+                                    <span>💬 5 回复</span>
+                                </div>
+                                <p class="post-excerpt">本人因换车，转让爱车一辆，品牌绿源，续航60公里，电池全新。价格面议，仅限自提。</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Hot Topics Widget -->
+                    <div class="widget">
+                        <h3 class="widget-title">热门话题</h3>
+                        <ul class="hot-list">
+                            <li><a href="#"><span class="rank">1</span>#永年太极拳#</a></li>
+                            <li><a href="#"><span class="rank">2</span>#广府古城旅游#</a></li>
+                            <li><a href="#"><span class="rank">3</span>#永年特产推荐#</a></li>
+                            <li><a href="#"><span class="rank">4</span>#小区物业费调整#</a></li>
+                            <li><a href="#"><span class="rank">5</span>#找工作#</a></li>
+                            <li><a href="#"><span class="rank">6</span>#相亲交友#</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="widget">
+                        <h3 class="widget-title">版块分类</h3>
+                        <div class="category-grid">
+                            <a href="#" class="category-item">
+                                <span class="category-icon">📰</span>
+                                <span class="category-name">今日新闻</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span class="category-icon">🏠</span>
+                                <span class="category-name">房产楼市</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span class="category-icon">🚗</span>
+                                <span class="category-name">车辆交易</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span class="category-icon">💼</span>
+                                <span class="category-name">求职招聘</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span class="category-icon">📢</span>
+                                <span class="category-name">分类信息</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span class="category-icon">❤️</span>
+                                <span class="category-name">情感生活</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Widget -->
+                    <div class="widget">
+                        <h3 class="widget-title">便民服务</h3>
+                        <ul class="hot-list">
+                            <li><a href="#">永年天气预报</a></li>
+                            <li><a href="#">永年公交查询</a></li>
+                            <li><a href="#">违章查询入口</a></li>
+                            <li><a href="#">办事大厅导航</a></li>
+                            <li><a href="#">本地通讯录</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Banner Ad Space (Simulated) -->
+        <div class="container" style="margin-bottom: 30px;">
+            <div style="background: #e0e0e0; height: 90px; display: flex; align-items: center; justify-content: center; color: #999; border-radius: 8px;">
+                广告位：社区广告展示区
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="container" style="margin-bottom: 40px;">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+                <details style="margin-bottom: 10px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: #333;">如何发布帖子？</summary>
+                    <p style="margin-top: 8px; color: #666; font-size: 14px;">点击页面右上角的“注册”按钮，完善个人信息后即可进入发帖区，选择相应的版块进行发布。</p>
+                </details>
+                <details style="margin-bottom: 10px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: #333;">发帖有字数限制吗？</summary>
+                    <p style="margin-top: 8px; color: #666; font-size: 14px;">普通帖子建议内容在 20 字以上，图片建议不超过 9 张，以确保浏览体验。</p>
+                </details>
+                <details style="cursor: pointer;">
+                    <summary style="font-weight: 600; color: #333;">如何举报违规内容？</summary>
+                    <p style="margin-top: 8px; color: #666; font-size: 14px;">在帖子右侧点击“...”菜单，选择“举报”，按照提示填写原因即可。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>永年吧 Local</h3>
+                    <p>永年区本地生活门户网站，致力于为永年人民提供最真实、最及时、最全面的本地资讯与生活服务。</p>
+                    <p>联系电话：0310-xxxxxxx &nbsp;|&nbsp; 邮箱：contact@yongnianba.com</p>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>热门版块</h4>
+                    <ul>
+                        <li><a href="#">今日头条</a></li>
+                        <li><a href="#">房产楼市</a></li>
+                        <li><a href="#">二手市场</a></li>
+                        <li><a href="#">求职招聘</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">APP下载</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 永年吧 Local Community. All Rights Reserved. 河北省邯郸市永年区备案号：冀ICP备xxxxxxxx号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                                  </html>
